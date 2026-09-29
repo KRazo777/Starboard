@@ -1,0 +1,169 @@
+:root {
+	--bg: #f6f5f2;
+	--card: #ffffff;
+	--text: #1c1b19;
+	--muted: #6f6c66;
+	--border: #e6e3dc;
+	--chip: #f0ede6;
+	--accent: #1d4ed8;
+	--accent-text: #ffffff;
+	--star: #f5a524;
+	--star-off: #d9d5cc;
+	--danger: #c0362c;
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #121211;
+		--card: #1b1b1a;
+		--text: #eceae5;
+		--muted: #9a978f;
+		--border: #2c2b29;
+		--chip: #262523;
+		--accent: #6d8dff;
+		--accent-text: #0d0d0c;
+		--star: #f7b43c;
+		--star-off: #3a3935;
+		--danger: #ff6b5f;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family:
+		system-ui,
+		-apple-system,
+		'Segoe UI',
+		Roboto,
+		sans-serif;
+}
+
+a {
+	color: var(--accent);
+}
+
+main {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 1rem 16px;
+}
+
+.topbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: color-mix(in srgb, var(--bg) 88%, transparent);
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid var(--border);
+}
+.topbar .inner {
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 0.7rem 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.brand {
+	font-weight: 800;
+	font-size: 1.15rem;
+	color: var(--text);
+	text-decoration: none;
+}
+.brand-star {
+	color: var(--star);
+}
+.topbar nav {
+	display: flex;
+	align-items: center;
+	gap: 0.9rem;
+	font-size: 0.95rem;
+}
+.topbar nav a:not(.btn) {
+	color: var(--text);
+	text-decoration: none;
+}
+.topbar nav a.me {
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
+	color: var(--muted);
+}
+
+.card {
+	background: var(--card);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 1rem 1.1rem;
+	margin-bottom: 0.8rem;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.35rem;
+	font: inherit;
+	font-weight: 600;
+	padding: 0.55rem 1.1rem;
+	border-radius: 999px;
+	border: 1px solid var(--accent);
+	background: var(--accent);
+	color: var(--accent-text);
+	cursor: pointer;
+	text-decoration: none;
+}
+.btn.small {
+	padding: 0.35rem 0.85rem;
+	font-size: 0.9rem;
+}
+.btn.ghost {
+	background: transparent;
+	color: var(--text);
+	border-color: var(--border);
+}
+.btn:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+button.link {
+	background: none;
+	border: none;
+	padding: 0;
+	font: inherit;
+	color: var(--muted);
+	cursor: pointer;
+}
+button.link:hover {
+	color: var(--text);
+}
+
+.muted {
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+.error {
+	color: var(--danger);
+	font-size: 0.9rem;
+	margin: 0.4rem 0 0;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
